@@ -42,8 +42,8 @@
       index: Number
     },
 
-    beforeMount () {
-      this.topicDetail(this.id)
+    beforeRouteEnter (to, from, next) {
+      next(vm => vm.topicDetail(to.params.id))
     },
 
     methods: {
@@ -52,7 +52,6 @@
           id: id
         }).then(() => {
           this.item = this.$store.getters.item.data
-          console.log(this.item)
         })
       },
       fromNow (time) {
@@ -80,6 +79,7 @@
           font-size 22px
           margin: 8px 0
           color #333
+          line-height 1.3
       .change
         color #838383
         font-size 12px

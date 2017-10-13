@@ -7,9 +7,9 @@
         <a  href="javascript:void(0) " class="reply_time">{{ (index + 1) }}楼{{  fromNow(reply.create_at) }}</a>
       </div>
       <div class="user_action">
-        <span><i class="fa up_btn fa-thumbs-o-up" :class="{'invisible': reply.ups.length == 0}" title="喜欢" @click="optionUpOrDown"></i></span>
-        <span class="up-count" :class="{'hidden': reply.ups.length == 0}">{{ reply.ups.length }}</span>
-        <span><i class="fa fa-reply reply2_btn"></i></span>
+        <span><i class="fa up_btn fa-thumbs-o-up" :class="{'invisible': count == 0}" title="喜欢" @click="optionUpOrDown(reply.id, accesstoken)"></i></span>
+        <span class="up-count" :class="{'hidden': count == 0}">{{ count }}</span>
+        <span v-if="accesstoken"><i class="fa fa-reply reply2_btn"></i></span>
       </div>
     </div>
     <div class="reply_content from-amwydqqk" v-html="reply.content">
@@ -19,22 +19,49 @@
 
 <script>
   import moment from 'moment'
+  import { getAccesstoken } from '../util/filter.js'
+  import { fetchReplyUps } from '../api'
   export default {
     name: 'comment',
 
     props: ['reply', 'index'],
 
+    data () {
+      return {
+        count: this.reply.ups.length,
+        action: ''
+      }
+    },
+
     methods: {
       fromNow (time) {
         return moment(time).fromNow()
       },
-      optionUpOrDown () {
+      optionUpOrDown (id, accesstoken) {
+        if (accesstoken) {
+          fetchReplyUps(id, accesstoken)
+            .then(response => {
+              let data = response.data
+              if (data.success) {
+                this.action = data.action
+                if (data.action === 'up') {
+                  this.count++
+                } else {
+                  this.count--
+                }
+              }
+            })
+        } else {
+          alert('请先登录，登陆后即可点赞')
+        }
       }
     },
-
     computed: {
       fetchReply () {
         return this.reply
+      },
+      accesstoken () {
+        return getAccesstoken()
       }
     }
   }
@@ -91,7 +118,11 @@
         content "\f087"
       .reply2_btn
         cursor pointer
-        opacity .4
+        opacity 0.4
+        &:link, &:visited
+          opacity 0.4
+        &:hover, &:active
+          opacity 0.8
       .fa-reply:before
         content '\f112'
     .reply_content

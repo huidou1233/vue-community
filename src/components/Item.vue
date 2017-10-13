@@ -28,7 +28,7 @@
         return moment(time).fromNow()
       },
       showDetail () {
-        this.$router.push({name: 'detail', params: {id: this.item.id}})
+        this.$router.push({path: '/topics/detail/' + this.item.id})
       }
     },
     computed: {
@@ -116,10 +116,16 @@
         font-size 16px
         line-height 30px
         color #333
+        &:link
+          color #333
+        &:visited
+          color #778087
         &:hover
+          color #333
           text-decoration underline
-      a.topic_title_a
-        color #778087
+        &:active
+          color #333
+          text-decoration underline
     a
       color #778087
 </style>

@@ -9,5 +9,11 @@ export default {
   },
   SET_DETAIL: (state, { response }) => {
     state.topicDetail = response.data
+  },
+  SET_TAB: (state, { tab }) => {
+    state.tab = tab
+  },
+  SET_ACCESSTOKEN (state, { accesstoken }) {
+    state.accesstoken = accesstoken
   }
 }

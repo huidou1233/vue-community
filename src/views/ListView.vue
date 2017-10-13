@@ -1,13 +1,5 @@
 <template>
   <div class="list">
-    <!-- <div class="header">
-      <router-link class="active" to="/topic?tab=all">全部</router-link>
-      <router-link to="/topic?tab=good">精华</router-link>
-      <router-link to="/topic?tab=weex">weex</router-link>
-      <router-link to="/topic?tab=share">分享</router-link>
-      <router-link to="/topic?tab=ask">问答</router-link>
-      <router-link to="/topic?tab=job">招聘</router-link>
-    </div> -->
     <Menu mode="horizontal" :activeName="type" @on-select="changeTab">
       <MenuItem name="all">全部</MenuItem>
       <MenuItem name="good">精华</MenuItem>
@@ -20,7 +12,8 @@
       <item v-for="item in displayedItems"  :item="item"></item>
     </ul>
     <div class="pagination">
-      <Page :total="this.total || 910" @on-change="change" :page-size="26"></Page>
+      <Page :total="this.total || 910" :current="currentPage" show-elevator show-total @on-change="change" :page-size="26">
+      </Page>
     </div>
   </div>
 </template>
@@ -47,13 +40,21 @@ export default {
     }
   },
 
-  beforeMount () {
+  beforeMount (to, from) {
     this.loadItems()
+  },
+
+  computed: {
+    currentPage () {
+      let page = Number(sessionStorage.getItem('page'))
+      return page || 1
+    }
   },
 
   methods: {
     loadItems () {
-      this.$store.dispatch('FETCH_LIST_DATA', {tab: this.type}).then(() => {
+      let currentPage = sessionStorage.getItem('page') || 1
+      this.$store.dispatch('FETCH_LIST_DATA', {tab: this.type, page: currentPage}).then(() => {
         this.displayedItems = this.$store.getters.items.data
         var tab = this.type
         if (tab === '' || tab === 'all') {
@@ -70,22 +71,24 @@ export default {
           this.total = 40
         }
         this.currentTab = 1
-        console.log('change displayedItems ', this.total)
       })
     },
     changeTab (name) {
+      sessionStorage.setItem('page', '1')
       this.$router.push({name: name})
     },
     change (page) {
-      this.$route.params.page = page
+      sessionStorage.setItem('page', page)
       this.$store.dispatch('FETCH_LIST_DATA', {tab: this.type || 'all', page: page}).then(() => {
         this.displayedItems = this.$store.getters.items.data
-        console.log('change page', page)
       })
     }
   },
+  beforeRouteUpdate (to, from, next) {
+    console.log('beforeRouteUpdate', to, from)
+  },
   watch: {
-    $route (to, from) {
+    '$route' (to, from) {
       console.log('$route', to, from)
     }
   }
@@ -99,20 +102,20 @@ export default {
       padding: 10px
       background-color #f6f6f6
       border-radius 3px 3px 0 0 
-      // a
-      //   color #369219
-      //   margin 0px 10px
-      //   padding 0px 4px
-      //   line-height 22px
-      //   display inline-block
-      //   &:hover
-      //     border-bottom-width 0
-      //     border-bottom-color #F6F6F6
-      //     color #005580
-      // a.active,a.active:hover
-      //     background-color #369219
-      //     color #fff
-      //     border-radius 3px
+      a
+        color #369219
+        margin 0px 10px
+        padding 0px 4px
+        line-height 22px
+        display inline-block
+        &:hover
+          border-bottom-width 0
+          border-bottom-color #F6F6F6
+          color #005580
+      a.active,a.active:hover
+          background-color #369219
+          color #fff
+          border-radius 3px
     .ivu-menu-light.ivu-menu-horizontal
       background #F6F6F6
       border-radius  3px 3px 0 0 

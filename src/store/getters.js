@@ -7,5 +7,8 @@ export default {
   },
   item (state) {
     return state.topicDetail
+  },
+  accesstoken (state) {
+    return state.accesstoken
   }
 }

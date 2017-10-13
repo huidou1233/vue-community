@@ -15,3 +15,8 @@ export function tab (tab, top, good) {
     return '分享'
   }
 }
+
+export function getAccesstoken () {
+  let accesstoken = window.localStorage.getItem('accesstoken')
+  return accesstoken
+}

@@ -7,10 +7,12 @@ import getters from './getters'
 Vue.use(Vuex)
 
 const state = {
-  limit: 20,
+  limit: 26,
   activeType: null,
   topicsLists: {},
-  topicDetail: {}
+  topicDetail: {},
+  tab: '',
+  accesstoken: ''
 }
 
 export function createStore () {

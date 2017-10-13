@@ -1,0 +1,852 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://source.uenjoy.com/img/yingguo_model/css/bootstrap.min.css">
+    <style>
+    #etb-template {
+          background-color: #fff;
+          top: 5px;
+        }
+        #etb-template,.breadcrumb,button.btn,#etb-tabs,#etb-tabs .content,#etb-tabs .content > div,#etb-template .panel {
+          border-radius: 6px;
+          -webkit-border-radius: 5px;
+          -moz-border-radius: 5px;
+        }
+        #etb-reviews td,.panel-body,#etb-is td,#etb-tabs p,#etb-bc,#etb-helplinks a,.alert p {
+          font-family: 'Helvetica neue',Helvetica,Verdana,sans-serif;
+          font-size: 16px;
+        }
+        .panel-body {
+          padding: 15px;
+        }
+        #image-gallery .cntb,#image-gallery .cnta {
+          display: none;
+        }
+        #etb-gallery {
+          display: block;
+          text-align: center;
+          margin: 0 auto;
+        }
+        .etb-gallery .main-img {
+          margin-bottom: 20px;
+        }
+        input[type="checkbox"],input[type="radio"] {
+          -webkit-box-sizing: border-box;
+          -moz-box-sizing: border-box;
+          box-sizing: border-box;
+          padding: 0;
+        }
+        input[type="radio"],input[type="checkbox"] {
+          margin: 4px 0 0;
+          margin-top: 1px \9;
+          line-height: normal;
+        }
+        input[type="file"]:focus,input[type="radio"]:focus,input[type="checkbox"]:focus {
+          outline: 5px auto -webkit-focus-ring-color;
+          outline-offset: -2px;
+        }
+        #etb-template etbimagesmain > input:checked + img {
+          display: inline-block;
+        }
+        #etb-gallery .large-img {
+          display: none;
+          max-width: 100%;
+          height: auto;
+        }
+        .etb-gallery .preview {
+          display: inline-block;
+          margin: 5px;
+          height: 72px;
+        }
+        .etb-gallery .preview > img {
+          width: 85px;
+          height: 85px;
+          display: block;
+          padding: 4px;
+          margin-bottom: 20px;
+          line-height: 1.42857143;
+          background-color: #ffffff;
+          border: 1px solid #dddddd;
+          border-radius: 4px;
+        }
+
+        .etb-gallery .preview:hover > img {
+          cursor: pointer;
+          opacity: 0.5;
+        }
+
+        #etb-template etbimagesmain > input:checked + img {
+          display: inline-block;
+        }
+        .etb-gallery .main-img {
+          margin-bottom: 20px;
+        }
+
+        etbimagesmain > input {
+          visibility: hidden;
+          position: absolute;
+        }
+
+        #etb-tabs,#image-gallery .img-thumbnail,#etb-rel-bot a.thumbnail,#etb-rel-side a.thumbnail,.btn,.panel,.panel-default {
+          border: 1px solid #ffffff;
+          border-color: #dddddd;
+        }
+        body {
+            margin: 0;
+            padding: 0;
+
+        }
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        @media screen and (min-width:1200px){
+            .header {
+                background-color: #eee;
+                height: 100px;
+            }
+            .logo{
+
+                margin-top: 20px;
+            }
+            .logo img{
+                width: 100%;
+            }
+            #header_right {
+                float: right;
+            }
+            .header_search {
+                border: 1px solid gainsboro;
+                margin-top: 15px;
+                border-radius: 5px;
+                height: 55px;
+            }
+            .fdj {
+                width: 30px;
+                float: left;
+                margin: 5px;
+            }
+            .inputs_01 {
+                height: 40px;
+                width: 75%;
+                font-size: 20px;
+                float: left;
+                border: 1px solid lightgrey;
+                margin: 7px 5px;
+                box-shadow: 0px 0px 1px 0px;
+                border-radius: 3px;
+                background-color: #ffffff;
+            }
+            .input_000 {
+                height: 39px;
+                width: 80%;
+                font-size: 20px;
+                border: 1px solid #000;
+                background: none;
+                outline-color: -moz-use-text-color;
+                outline-style: none;
+                outline-width: medium;
+            }
+
+            #submit,.submit{
+                float: left;
+                width: 21%;
+                height: 38px;
+                text-align: center;
+                line-height: 34px;
+                border: 1px solid gainsboro;
+                border-radius: 4px;
+                background: ghostwhite;
+                color: grey;
+                font-weight: bold;
+                box-shadow: 0px 0px 1px 0px;
+                margin-top: 7px;
+            }
+            #banner {
+                margin-top: 40px;
+            }
+            #banner img {
+                width: 100%;
+                height: auto;
+                margin: 0px;
+                padding: 0px;
+            }
+
+            .main_title {
+                text-align: center;
+                font-weight: bolder;
+                margin-top: 30px;
+            }
+
+            .main_title img {
+                margin-top: 20px;
+            }
+
+            .main_neirong , .package_neirong{
+                margin-top: 40px;
+            }
+            .main_neirong p {
+                font-size: 20px;
+                margin-left: 10px;
+            }
+
+            /* -----------------放大镜开始---------------*/
+            /*主容器*/
+
+            .con-FangDa {
+                margin-top: 20px;
+                padding: 0px;
+            }
+            . con-fangDaIMg{
+                width: 100%;
+                height: 840px;
+            }
+            /*正常容器*/
+            .con-fangDaIMg > img {
+                width: 99.3%;
+                height: 840px;
+            }
+            /*设置选择图片容器*/
+            .con-FangDa-ImgList {
+                margin-top: 10px;
+                width: 100%;
+                list-style: none;
+                margin-left: -8px;
+
+            }
+
+            .con-FangDa-ImgList > li {
+                width: 137px;
+                cursor: pointer;
+                text-align: center;
+                margin-left: 9px;
+                float: left;
+                height: 137px;
+                list-style-type: none;
+            }
+            .con-FangDa-ImgList > li > img {
+                vertical-align: top;
+                display: inline;
+                width: 136px;
+                height: 136px;
+                border: 1px solid gainsboro;
+            }
+
+            .con-FangDa-ImgList > .active {
+                border-color: #000;
+            }
+
+            .small_img li:hover img {
+                opacity: 0.9;
+            }
+
+            /* -----------------放大镜结束---------------*/
+            .small_button {
+                text-align: center;
+                margin-top: 20px;
+                margin-bottom: 20px;
+            }
+
+            .small_button h3 {
+                font-weight: 300;
+            }
+            .hengxian img {
+                width: 100%;
+                height: auto;
+            }
+            .small_text {
+                margin-top: 10px;
+                text-align: left;
+            }
+
+            .small_text p {
+                font-size: 19px;
+            }
+            .small_text {
+                text-align: left;
+            }
+            .logo_img {
+                width: 100%;
+                margin-top: 10px;
+            }
+            .why li {
+                list-style-type: none;
+                text-align: center;
+            }
+            .why li:hover > .fl>.why_right> img {
+                transform: rotate(0deg);
+            }
+            .logo_img ul li:hover > .f2 {
+                display: block;
+            }
+            .f2 {
+                display: none;
+            }
+            .why_right {
+                margin-left: 50px;
+                width: 100px;
+            }
+            .why_right img {
+                transform: rotate(-90deg);
+                width: 35px;
+                height: 35px;
+            }
+            .logo_img ul li {
+                list-style-type: none;
+                margin-top: 10px;
+            }
+
+            .fl {
+                height: 74px;
+                background-color: #2496c1;
+                font-size: 40px;
+                font-weight: bold;
+                line-height: 73px;
+            }
+            .choose {
+                width: 70%;
+                margin-right: -309px;
+                color: #fff;
+            }
+            .why_right {
+                float: right;
+                width: 28%;
+                text-align: left;
+            }
+            .f2 {
+                width: 100%;
+            }
+            .f2 img {
+                width: 100%;
+            }
+            .footer_bg {
+                width: 100%;
+                background-color: #2496c1;
+                padding-bottom: 20px;
+                text-align: center;
+            }
+            .contact {
+                padding-top: 14px;
+                font-size: 40px;
+                color: #fff;
+                font-weight: bold;
+                /* margin-top: 10px; */
+                margin-left: -60px;
+            }
+            .footer_p {
+                color: #fff;
+                font-size: 20px;
+                line-height: 1;
+                font-weight: 500;
+                margin-top: 16px;
+            }
+            .web_content{
+                display: none;
+            }
+        }
+        @media screen and (max-width:1199px){
+            .pc_content{
+                display: none;
+            }
+            .header {
+                background-color: #eee;
+                height:60px;
+            }
+            #header_right {
+                float: right;
+            }
+            .header_search {
+                border: 1px solid gainsboro;
+                margin-top: 5px;
+                border-radius: 5px;
+                height: 44px;
+            }
+            .fdj {
+                width:18px;
+                float: left;
+                margin: 7px auto;
+            }
+            .inputs_01 {
+                height: 32px;
+                width: 72%;
+                font-size: 20px;
+                float: left;
+                border: 1px solid lightgrey;
+                margin: 5px 5px;
+                box-shadow: 0px 0px 1px 0px;
+                border-radius: 3px;
+                background-color: #ffffff;
+            }
+            .input_000 {
+                height: 31px;
+                width: 85%;
+                font-size: 15px;
+                outline-style: none;
+                outline-width: medium;
+            }
+            .submit {
+                float: left;
+                width: 23%;
+                height: 30px;
+                font-size: 12px;
+                text-align: center;
+                line-height: 28px;
+                border: 1px solid gainsboro;
+                border-radius: 4px;
+                background: ghostwhite;
+                color: grey;
+                font-weight: bold;
+                box-shadow: 0px 0px 1px 0px;
+                margin-top: 7px;
+            }
+            #banner {
+                margin-top: 10px;
+            }
+            #banner img {
+                width: 100%;
+                height: auto;
+                margin: 0px;
+                padding: 0px;
+            }
+            .main_title {
+                text-align: center;
+                font-weight: bolder;
+                margin-top: 20px;
+            }
+            .main_title img {
+                width: 100%;
+                height: auto;
+                margin-top: 5px;
+            }
+            .main_neirong,.package_neirong {
+                margin-top: 10px;
+            }
+            /* -----------------放大镜开始---------------*/
+            /*主容器*/
+            .con-FangDa {
+                margin-top: 10px;
+                padding: 0px;
+            }
+            /*正常容器*/
+
+            .con-fangDaIMg > img {
+                width: 100%;
+                height: auto
+
+            }
+            /*设置选择图片容器*/
+            .con-FangDa-ImgList {
+                margin-top: 7px;
+                width: 100%;
+                list-style: none;
+            }
+            .con-FangDa-ImgList > li {
+                width: 11.5%;
+                cursor: pointer;
+                text-align: center;
+                margin-left: 0.9%;
+                float: left;
+                list-style-type: none;
+            }
+            .con-FangDa-ImgList > li > img {
+                vertical-align: top;
+                display: inline;
+                width: 100%;
+
+            }
+            .con-FangDa-ImgList > .active {
+                border-color: #000;
+            }
+            .small_img li:hover img {
+                opacity: 0.9;
+            }
+
+            /* -----------------放大镜结束---------------*/
+            .small_button {
+                text-align: center;
+                margin-bottom: 10px;
+            }
+            .small_button h3 {
+                font-weight: 300;
+            }
+            .hengxian img {
+                width: 100%;
+                height: auto;
+            }
+            .small_text {
+                margin-top: 10px;
+            }
+            .small_text p {
+                font-size: 13px;
+            }
+            .logo_img {
+                width: 100%;
+                margin-top: 5px;
+            }
+            .why li {
+                list-style-type: none;
+                text-align: center;
+            }
+            .why li:hover > .fl>.why_right> img {
+                transform: rotate(0deg);
+            }
+            .logo_img ul li:hover > .f2 {
+                display: block;
+            }
+            .f2 {
+                display: none;
+            }
+            .why_right {
+                margin-left: 50px;
+                width: 100px;
+            }
+            .why_right img {
+                transform: rotate(-90deg);
+                width: 22px;
+                height: 22px;
+
+            }
+            .logo_img ul li {
+                list-style-type: none;
+                margin-top: 10px;
+            }
+            .fl {
+                height: 58px;
+                background-color: #2496c1;
+                font-size: 18px;
+                font-weight: bold;
+                line-height: 58px;
+            }
+            .choose {
+                color: #fff;
+                margin-left: 17%;
+            }
+            .why_right {
+                float: right;
+                width: 8%;
+                text-align: left;
+
+            }
+            .f2 {
+                width: 100%;
+            }
+            .f2 img {
+                width: 100%;
+            }
+            .footer_bg {
+                width: 100%;
+                background-color: #2496c1;
+                padding-bottom: 20px;
+                text-align: center;
+            }
+            .contact {
+                padding-top: 5px;
+                font-size: 20px;
+                color: #fff;
+                font-weight: bold;
+            }
+            .footer_p {
+                color: #fff;
+                font-size: 13px;
+                line-height: 1;
+                font-weight: 500;
+            }
+
+        }
+    </style>
+</head>
+<body>
+<div class="container-fluid">
+  <!-- ------ pc端开始-------->
+<div class="container pc_content">
+<div class="row ">
+    <div class="col-md-12 header ">
+        <div class="col-md-3 logo">
+            <img src="https://source.uenjoy.com/img/yingguo_model/img/uenjoy.png" alt="">
+        </div>
+        <div class="col-md-4" id="header_right">
+            <div class="header_search">
+                <form action="http://stores.ebay.co.uk/outletdeal11" method="get"
+                              target="_blank">
+                              <input type="hidden" name="_dmd" value="1">
+                            <div class="inputs_01">
+                                <img src="https://source.uenjoy.com/img/yingguo_model/img/fdj.png" alt="" class="fdj">
+                                <div class="input_00">
+                                    <input id="s" name="_nkw" class="input_000"
+                                           style="border:0px solid #000;background:none;color: grey;"
+                                           placeholder="Search within SHop..." type="text">
+                                </div>
+                            </div>
+                            <span style="clear:both"></span>
+                            <input type="submit" class="submit" value="SEARCH">
+                        </form>
+            </div>
+            <div style="clear:both"></div>
+        </div>
+    </div>
+    <div class="clearfix"></div>
+    <div id="banner">
+        <img src="https://source.uenjoy.com/img/yingguo_model/img/banner.jpg" alt="">
+    </div>
+</div>
+<div class="row" id="main">
+    <div class="main_title">
+        <h1>{{title}}</h1>
+        <img src="https://source.uenjoy.com/img/yingguo_model/img/hengxian.jpg" alt="">
+    </div>
+    <div class="col-md-12 pro_img con-FangDa" id="etb-template">
+        <div id="etb-main">
+            <div id="etb-main-col">
+                <div class="panel" id="image-gallery">
+            <div class="panel-body">
+                <div id="gallery">
+                    <p class="cntb"></p>
+                    <div class="etb-gallery" id="etb-gallery">
+                        <div class="main-img">
+                            <etbimagesmain>
+                                        <!-- DO NOT EDIT ** ABOVE ** THIS LINE -->
+                                <input type="radio" name="image-gallery" checked="checked" id="image-gallery-0">
+                                <img src="{{photo1}}" class="large-img">
+                                <input type="radio" name="image-gallery" id="image-gallery-1">
+                                <img src="{{photo2}}" class="large-img">
+                                <input type="radio" name="image-gallery" id="image-gallery-2">
+                                <img src="{{photo3}}" class="large-img">
+                                <input type="radio" name="image-gallery" id="image-gallery-3">
+                                <img src="{{photo4}}" class="large-img">
+                                <input type="radio" name="image-gallery" id="image-gallery-4">
+                                <img src="{{photo5}}" class="large-img">
+                                <input type="radio" name="image-gallery" id="image-gallery-5">
+                                <img src="{{photo6}}" class="large-img">
+                                <input type="radio" name="image-gallery" id="image-gallery-6">
+                                <img src="{{photo7}}" class="large-img">
+                                <input type="radio" name="image-gallery" id="image-gallery-7">
+                                <img src="{{photo8}}" class="large-img">
+
+                                            <!-- DO NOT EDIT ** BELOW ** THIS LINE -->
+                            </etbimagesmain>
+                            </div>
+                            <div class="preview-container">
+                                <etbimagespreview>
+                                            <!-- DO NOT EDIT ** ABOVE ** THIS LINE -->
+                                    <label class="preview" for="image-gallery-0"><img src="{{photo1}}"></label>
+                                    <label class="preview" for="image-gallery-1"><img src="{{photo2}}"></label>
+                                    <label class="preview" for="image-gallery-2"><img src="{{photo3}}"></label>
+                                    <label class="preview" for="image-gallery-3"><img src="{{photo4}}"></label>
+                                    <label class="preview" for="image-gallery-4"><img src="{{photo5}}"></label>
+                                    <label class="preview" for="image-gallery-5"><img src="{{photo6}}"></label>
+                                    <label class="preview" for="image-gallery-6"><img src="{{photo7}}"></label>
+                                    <label class="preview" for="image-gallery-7"><img src="{{photo8}}"></label>
+                                            <!-- DO NOT EDIT ** BELOW ** THIS LINE -->
+                                </etbimagespreview>
+                            </div>
+                        </div>
+                        <div class="clearfix"></div>
+                        <p class="cnta"></p>
+                    </div><!-- /gallery -->
+                </div>
+            </div>
+            </div>
+        </div>
+        
+    </div>
+    <div class="col-md-12 small_button">
+        <h3>Product Description</h3>
+        <div class="col-md-2 col-md-offset-5 hengxian">
+            <img src="https://source.uenjoy.com/img/yingguo_model/img/hengxian.jpg" alt="">
+        </div>
+        <div class="col-md-10 col-md-offset-1 small_text" >
+        <p>{{description}} </p>
+        </div>
+    </div>
+    <div class="col-md-12">
+        <div class="logo_img">
+            <ul class="why"  >
+                <li>
+                    <div class="fl"  >
+                        <span class="choose">WHY CHOOSE US?</span>
+                        <span class="why_right"> <img src="https://source.uenjoy.com/img/yingguo_model/img/vv.jpg"   alt=""> </span>
+                    </div>
+
+                    <div class="f2"  >
+                        <img src="https://source.uenjoy.com/img/yingguo_model/img/pc_01.jpg" alt="">
+                    </div>
+                </li>
+                <li>
+                    <div class="fl" >
+                        <span class="choose">PAYMENT</span>
+                        <span class="why_right"> <img src="https://source.uenjoy.com/img/yingguo_model/img/vv.jpg"   alt=""></span>
+                    </div>
+
+                    <div class="f2" >
+                        <img src="https://source.uenjoy.com/img/yingguo_model/img/pc_02.jpg" alt="">
+                    </div>
+                </li>
+                <li>
+                    <div class="fl">
+                        <span class="choose">SHIPMENT</span>
+                        <span class="why_right"> <img src="https://source.uenjoy.com/img/yingguo_model/img/vv.jpg"  alt=""> </span>
+                    </div>
+                    <div class="f2"  ><img src="https://source.uenjoy.com/img/yingguo_model/img/pc_03.jpg" alt=""></div>
+                </li>
+                <li>
+                    <div class="fl" >
+                        <span class="choose">RETURNS</span>
+                        <span class="why_right"> <img src="https://source.uenjoy.com/img/yingguo_model/img/vv.jpg"  alt=""> </span>
+                    </div>
+                    <div class="f2" ><img src="https://source.uenjoy.com/img/yingguo_model/img/pc_04.jpg" alt=""></div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+<div class="row" >
+    <div class="col-md-12">
+        <div class="footer_bg">
+            <div class="footer ">
+                <p class="contact">Contact us</p>
+                <p class="footer_p">Delivery Problems:Call 015-626-9723</p>
+                <p class="footer_p">9:30AM-5:00PM PST Other questions,please contact us via eBay.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+</div>
+    <!-- ------ pc端结束-------->
+    <!-- ------ 手机端端开始-------->
+    <div class="web_container web_content">
+        <div class="row ">
+            <div class="col-xs-12 header ">
+                <div class="col-xs-12" id="header_right">
+                    <div class="header_search">
+                        <form action="http://stores.ebay.co.uk/outletdeal11" method="get"
+                              target="_blank">
+                              <input type="hidden" name="_dmd" value="1">
+                            <div class="inputs_01">
+                                <img src="https://source.uenjoy.com/img/yingguo_model/img/fdj.png" alt="" class="fdj">
+                                <div class="input_00">
+                                    <input id="s" name="_nkw" class="input_000"
+                                           style="border:0px solid #000;background:none;color: grey;"
+                                           placeholder="Search within SHop..." type="text">
+                                </div>
+                            </div>
+                            <span style="clear:both"></span>
+                            <input type="submit" class="submit" value="SEARCH">
+                        </form>
+                    </div>
+                    <div style="clear:both"></div>
+                </div>
+            </div>
+            <div class="clearfix"></div>
+            <div id="banner">
+                <img src="https://source.uenjoy.com/img/yingguo_model/img/banner.jpg" alt="">
+            </div>
+        </div>
+        <div class="row" >
+            <div class="main_title">
+                <h3>{{title}}</h3>
+                <img src="https://source.uenjoy.com/img/yingguo_model/img/hengxian.jpg" alt="">
+            </div>
+            <!--<div class="col-xs-12 main_neirong">-->
+                <!--<p>You are viewing our brand </p>-->
+                <!--<p>You are viewing our brand </p>-->
+                <!--<p>You are viewing our brand </p>-->
+                <!--<div class="package_neirong">-->
+                    <!--<p>You are viewing our brand </p>-->
+                    <!--<p>You are viewing our brand </p>-->
+                    <!--<p>You are viewing our brand </p>-->
+                <!--</div>-->
+            <!--</div>-->
+             <div class="col-xs-12 pro_img con-FangDa"  id="fangdajin">
+                 <div class="con-fangDaIMg">
+                     <img src="{{photo1}}" alt="" class="big_img">
+                 </div>
+                 <ul class="small_img con-FangDa-ImgList">
+                     <li class="active">
+                         <img src="{{photo1}}" data-bigimg="{{photo1}}" alt=""></li>
+                     <li><img src="{{photo2}}" data-bigimg="{{photo2}}" alt=""></li>
+                     <li><img src="{{photo3}}" data-bigimg="{{photo3}}" alt=""></li>
+                     <li><img src="{{photo4}}" data-bigimg="{{photo4}}" alt=""></li>
+                     <li><img src="{{photo5}}" data-bigimg="{{photo5}}" alt=""></li>
+                     <li><img src="{{photo6}}" data-bigimg="{{photo6}}" alt=""></li>
+                     <li><img src="{{photo7}}" data-bigimg="{{photo7}}" alt=""></li>
+                     <li><img src="{{photo8}}" data-bigimg="{{photo8}}" alt=""></li>
+                 </ul>
+             </div>
+            <div class="col-xs-12 small_button">
+                <h3>Product Description</h3>
+                <div class="col-md-2 col-md-offset-5 hengxian">
+                    <img src="https://source.uenjoy.com/img/yingguo_model/img/hengxian.jpg" alt="">
+                </div>
+                <div class="col-md-10 col-md-offset-1 small_text" >
+                    <p>{{description}} </p>
+                </div>
+            </div>
+            <div class="col-xs-12">
+                <div class="logo_img">
+                    <ul class="why"  >
+                        <li>
+                            <div class="fl" id="pc_why" >
+                                <span class="choose">WHY CHOOSE US?</span>
+                                <span class="why_right"> <img src="https://source.uenjoy.com/img/yingguo_model/img/vv.jpg"  alt=""> </span>
+                            </div>
+
+                            <div class="f2" id="fv" >
+                                <img src="https://source.uenjoy.com/img/yingguo_model/img/pc_01.jpg" alt="">
+                            </div>
+                        </li>
+                        <li>
+                            <div class="fl" id="pc_payment">
+                                <span class="choose">PAYMENT</span>
+                                <span class="why_right"> <img src="https://source.uenjoy.com/img/yingguo_model/img/vv.jpg"   alt=""></span>
+                            </div>
+
+                            <div class="f2" id="mm" >
+                                <img src="https://source.uenjoy.com/img/yingguo_model/img/pc_02.jpg" alt="">
+                            </div>
+                        </li>
+                        <li>
+                            <div class="fl" id="pc_shipment">
+                                <span class="choose">SHIPMENT</span>
+                                <span class="why_right"> <img src="https://source.uenjoy.com/img/yingguo_model/img/vv.jpg"  alt=""> </span>
+                            </div>
+                            <div class="f2" id="gg" ><img src="https://source.uenjoy.com/img/yingguo_model/img/pc_03.jpg" alt=""></div>
+                        </li>
+                        <li>
+                            <div class="fl" id="pc_returns">
+                                <span class="choose">RETURNS</span>
+                                <span class="why_right"> <img src="https://source.uenjoy.com/img/yingguo_model/img/vv.jpg"  alt=""> </span>
+                            </div>
+                            <div class="f2" id="nn"><img src="https://source.uenjoy.com/img/yingguo_model/img/pc_04.jpg" alt=""></div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="row" id="footer">
+            <div class="col-xs-12">
+                <div class="footer_bg">
+                    <div class="footer ">
+
+                        <p class="contact">Contact us</p>
+                        <p class="footer_p">Delivery Problems:Call 015-626-9723</p>
+                        <p class="footer_p">9:30AM-5:00PM PST Other questions,please contact us via eBay.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+
+
+</body>
+</html>

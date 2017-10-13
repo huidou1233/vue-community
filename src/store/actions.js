@@ -1,27 +1,20 @@
 import {
   fetchTopicsItems,
-  fetchTopicsById
+  fetchTopicsById,
+  fetchLogin
 } from '../api'
 
 export default {
 
-  FETCH_LIST_DATA: ({ commit, dispatch, state }, { tab, page }) => {
-    console.log('FETCH_LIST_DATA tab', tab)
-    // return fetchTopicsItems()
-    //     .then(response => commit('SET_ITEMS', { response }))
-    //     .then(() => dispatch('ENSURE_ACTIVE_ITEMS'), {
-    //       tab: tab
-    //     })
+  FETCH_LIST_DATA: ({ commit, dispatch, state }, { tab, page = 1 }) => {
     return fetchTopicsItems(tab, page).then(response => commit('SET_ITEMS', { response }))
   },
 
   ENSURE_ACTIVE_ITEMS: ({ dispatch }, { tab }) => {
-    console.log('ENSURE_ACTIVE_ITEMS tab', tab)
     return dispatch('FETCH_ITEMS', {tab: tab})
   },
 
   FETCH_ITEMS: ({ commit, state }, {tab}) => {
-    console.log('FETCH_ITEMS', tab)
     if (typeof tab === 'object') {
       return fetchTopicsItems(tab.tab, tab.page).then(response => commit('SET_ITEMS', { response }))
     } else {
@@ -32,8 +25,16 @@ export default {
   FETCH_ITEM: ({ commit }, { id }) => {
     return fetchTopicsById(id).then(response => commit('SET_DETAIL', {response}))
   },
+
+  FETCH_LOGIN: ({commit}, { accesstoken }) => {
+    return fetchLogin(accesstoken).then(response => {
+      if (response.data.success === true) {
+        commit('SET_ACCESSTOKEN', {accesstoken})
+      }
+    })
+  },
+
   FETCH_TOTAL: ({ commit }, { tab }) => {
-    console.log('FETCH_TOTAL', tab)
     if (tab === '' || tab === 'all') {
       commit('SET_TOTAL', 910)
     } else if (tab === 'good') {
@@ -47,5 +48,9 @@ export default {
     } else if (tab === 'job') {
       commit('SET_TOTAL', 40)
     }
+  },
+
+  CHANGE_TAB: ({ commit }, { tab }) => {
+    commit('SET_TAB', tab)
   }
 }
