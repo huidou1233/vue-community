@@ -11,8 +11,8 @@
     <ul name="item">
       <item v-for="item in displayedItems"  :item="item"></item>
     </ul>
-    <div class="pagination">
-      <Page :total="this.total || 910" :current="currentPage" show-elevator show-total @on-change="change" :page-size="26">
+    <div class="pagination" v-if='this.total'>
+      <Page :total="this.total" :current="currentPage" show-elevator show-total @on-change="change" :page-size="26">
       </Page>
     </div>
   </div>
@@ -35,8 +35,7 @@ export default {
   data () {
     return {
       displayedItems: [],
-      total: '',
-      currentTab: ''
+      total: ''
     }
   },
 
@@ -70,7 +69,6 @@ export default {
         } else if (tab === 'job') {
           this.total = 40
         }
-        this.currentTab = 1
       })
     },
     changeTab (name) {

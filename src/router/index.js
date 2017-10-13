@@ -11,7 +11,6 @@ const createListView = id => () => import('../views/CreateListView').then(m => m
 const scrollBehavior = (to, from, savedPosition) => {
   if (savedPosition) {
     setTimeout(() => {
-      console.log('scrollBehavior setTimeout savedPosition', savedPosition)
       window.scrollTo(savedPosition.x, savedPosition.y)
     }, 200)
   } else {
