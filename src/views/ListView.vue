@@ -8,9 +8,16 @@
       <MenuItem name="ask">问答</MenuItem>
       <MenuItem name="job">招聘</MenuItem>
     </Menu>
-    <ul name="item">
+
+    <ul name="item" v-if='displayedItems'>
       <item v-for="item in displayedItems"  :item="item"></item>
     </ul>
+    <div v-if='!displayedItems'>
+      <Spin fix>
+        <Icon type="load-c" size=18 class="spin-icon-load"></Icon>
+        <div>Loading</div>
+      </Spin>
+    </div>
     <div class="pagination" v-if='this.total'>
       <Page :total="this.total" :current="currentPage" show-elevator show-total @on-change="change" :page-size="26">
       </Page>
@@ -133,7 +140,17 @@ export default {
         background-color #369219
         color #fff
         border-radius 3px
-  
   .pagination
     padding 10px
+.spin-icon-load
+  animation ani-demo-spin 1s linear infinite
+@keyframes ani-demo-spin {
+  from { transform: rotate(0deg)}
+  50%  { transform: rotate(180deg)}
+  to   { transform: rotate(360deg)}
+}
+.spin-col
+  height 100px
+  position relative
+  border 1px solid #eee
 </style>
